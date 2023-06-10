@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "763314098857",
+    "project_id": "gourmentcoffee-6a612",
+    "storage_bucket": "gourmentcoffee-6a612.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763314098857:android:0f2ba834bc09bfcb91cfb8",
+        "android_client_info": {
+          "package_name": "com.example.gourmentcofe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763314098857-cjr7vjq4rfdimpkprh8jvcooiu121hqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfytLxfrr78jdSKYd2fR7tdjFqx7HqNu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763314098857-cjr7vjq4rfdimpkprh8jvcooiu121hqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

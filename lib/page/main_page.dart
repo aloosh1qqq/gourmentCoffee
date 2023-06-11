@@ -37,33 +37,33 @@ class _MainPageState extends State<MainPage> {
                       child: Image.asset("assets/image/Gourmet_Logo.png"),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                    SearchBox(),
+                    SearchBar(),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     CarouselWithDotsPage(imgList: imgList),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                    SizedBox(
-                      height: 1000,
-                      child: GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, // عدد الأعمدة في الشبكة
-                            mainAxisSpacing:
-                                8.0, // المسافة العمودية بين العناصر
-                            crossAxisSpacing:
-                                8.0, // المسافة الأفقية بين العناصر
-                            childAspectRatio:
-                                0.8, // نسبة العرض إلى الارتفاع لكل عنصر
-                          ),
-                          itemCount: 3,
-                          itemBuilder: (con, ind) {
-                            return CatigoryWidget(
-                              images: "assets/image/Gourmet_Logo.png",
-                              name: "koffe",
-                              price: "5",
-                              title: "sadf",
-                            );
-                          }),
-                    ),
+                    // SizedBox(
+                    //   height: 1000,
+                    //   child: GridView.builder(
+                    //       gridDelegate:
+                    //           SliverGridDelegateWithFixedCrossAxisCount(
+                    //         crossAxisCount: 2, // عدد الأعمدة في الشبكة
+                    //         mainAxisSpacing:
+                    //             8.0, // المسافة العمودية بين العناصر
+                    //         crossAxisSpacing:
+                    //             8.0, // المسافة الأفقية بين العناصر
+                    //         childAspectRatio:
+                    //             0.8, // نسبة العرض إلى الارتفاع لكل عنصر
+                    //       ),
+                    //       itemCount: 3,
+                    //       itemBuilder: (con, ind) {
+                    //         return CatigoryWidget(
+                    //           images: "assets/image/Gourmet_Logo.png",
+                    //           name: "koffe",
+                    //           price: "5",
+                    //           title: "sadf",
+                    //         );
+                    //       }),
+                    // ),
                   ],
                 ),
               ),

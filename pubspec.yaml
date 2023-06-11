@@ -41,6 +41,13 @@ dependencies:
   firebase_core: 
   carousel_slider:
   bottom_bar_with_sheet: ^2.4.0
+  google_fonts:
+  smooth_page_indicator:
+  flutter_map:
+  latlong2:
+  # latlong: 
+ 
+
 
 dev_dependencies:
   flutter_test:

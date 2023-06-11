@@ -1,6 +1,7 @@
 class ItemModel {
   String name;
-  int price, id;
+  int id;
+  double price;
 
   ItemModel({
     required this.id,
@@ -11,7 +12,7 @@ class ItemModel {
     return ItemModel(
       id: json['id'],
       name: json['name'],
-      price: json['image'],
+      price: json['price'],
     );
   }
 }

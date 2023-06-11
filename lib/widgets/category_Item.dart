@@ -25,6 +25,9 @@ class CategoryItme extends StatelessWidget {
               price,
               style: TextStyle(color: Colors.white),
             ),
+            SizedBox(
+              width: 5,
+            ),
             Text(
               "\$\t",
               style: TextStyle(

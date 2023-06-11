@@ -1,36 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gourmentcofe/them.dart';
 
-class SearchBox extends StatefulWidget {
-  const SearchBox({super.key});
+class SearchBar extends StatelessWidget {
+  const SearchBar({
+    Key? key,
+  }) : super(key: key);
 
-  @override
-  State<SearchBox> createState() => _SearchBoxState();
-}
-
-class _SearchBoxState extends State<SearchBox> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15),
+      padding: EdgeInsets.only(right: 5.0, left: 5),
       child: TextField(
-        onSubmitted: (text) {
-          setState(() {
-            // _search = text.trim();
-            // _offset = 0;
-          });
-        },
-        decoration: const InputDecoration(
-          labelText: "Search",
-          labelStyle: TextStyle(color: Colors.black),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black, width: 0),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black, width: 0),
-          ),
-        ),
-        style: const TextStyle(color: Colors.black, fontSize: 18),
-        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+            hintText: "Search",
+            prefixIcon: const Icon(
+              Icons.search,
+              size: 20,
+            ),
+            suffixIcon: Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: CircleAvatar(
+                radius: 25,
+                backgroundColor: AppTheme.secondaryColor,
+                child: SvgPicture.asset(
+                  'assets/icons/filter.svg',
+                  height: 20,
+                  color: AppTheme.whiteColor,
+                ),
+              ),
+            ),
+            border: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(30.0),
+              ),
+              borderSide: BorderSide(
+                width: 0,
+                style: BorderStyle.none,
+              ),
+            ),
+            enabledBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(30.0),
+              ),
+              borderSide: BorderSide(
+                width: 0,
+                style: BorderStyle.none,
+              ),
+            ),
+            filled: true,
+            fillColor: const Color(0xFFF5F5F5)),
       ),
     );
   }

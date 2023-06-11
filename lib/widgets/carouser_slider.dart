@@ -40,7 +40,7 @@ class _CarouselWithDotsPageState extends State<CarouselWithDotsPage> {
         CarouselSlider(
           items: imageSliders,
           options: CarouselOptions(
-              height: 500,
+              height: 400,
               autoPlay: true,
               enlargeCenterPage: true,
               aspectRatio: 2.0,

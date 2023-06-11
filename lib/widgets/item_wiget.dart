@@ -1,16 +1,17 @@
 // import 'package:coffee_shop/detail_page.dart';
 // import 'package:coffee_shop/widgets/category_Item.dart';
 import 'package:flutter/material.dart';
+import 'package:gourmentcofe/models/item_model.dart';
 import 'package:gourmentcofe/widgets/category_Item.dart';
 
 class CatigoryWidget extends StatelessWidget {
   CatigoryWidget(
       {super.key,
       required this.images,
-      required this.name,
-      required this.price,
+      required this.items,
       required this.title});
-  String images, title, price, name;
+  String images, title;
+  List<ItemModel> items = [];
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -71,14 +72,15 @@ class CatigoryWidget extends StatelessWidget {
               height: 10,
             ),
             SizedBox(
-                height: 410,
+                height: 200,
                 child: MediaQuery.removePadding(
                   context: context,
                   removeTop: true,
                   child: ListView.builder(
-                      itemCount: 15,
+                      itemCount: items.length,
                       itemBuilder: (contaxt, index) {
-                        return CategoryItme(name, price);
+                        return CategoryItme(
+                            items[index].name, items[index].price.toString());
                       }),
                 )),
           ],
@@ -86,4 +88,15 @@ class CatigoryWidget extends StatelessWidget {
       ),
     );
   }
+
+  List<String> names = [
+    "Englische Mischung",
+    "Grüntee",
+    "Lemon Fresh",
+    "Pfefferminze",
+    "Kamille",
+    "Frische Ingwer-Zitronen Tee",
+    "Frische Pfefferminzetee",
+    "Heisse-Zitrone",
+  ];
 }

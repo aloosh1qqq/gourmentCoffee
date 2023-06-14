@@ -45,6 +45,9 @@ dependencies:
   smooth_page_indicator:
   flutter_map:
   latlong2:
+  firebase_auth:
+  fluttertoast: ^8.0.9
+  shared_preferences:
   # latlong: 
  
 

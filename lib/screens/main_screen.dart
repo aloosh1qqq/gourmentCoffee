@@ -1,14 +1,8 @@
-import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gourmentcofe/screens/profile_secreen.dart';
-import 'package:gourmentcofe/them.dart';
-import 'package:gourmentcofe/widgets/bottom_bar.dart';
+
 import 'package:gourmentcofe/widgets/carouser_slider.dart';
-import 'package:gourmentcofe/widgets/home_header.dart';
-import 'package:gourmentcofe/widgets/item_wiget.dart';
-import 'package:gourmentcofe/widgets/search_box.dart';
 
 import 'menu_screen.dart';
 
@@ -24,8 +18,8 @@ class _Main_screenState extends State<Main_screen> {
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8e9iuApdgXSY-NoYRwopQGDFWV4zvwDBGoB72nqMhNxMVpsXdlr_GsBD9BuyI4r5GT0E&usqp=CAU',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQduwlwMlw9_ifFd_P1RZ9_Of657lWzqDspew&usqp=CAU',
+      'assets/image/cobon1.jpg',
+      'assets/image/cobon2.jpg'
     ];
     final List<Widget> pages = [
       MenuScreen(),
@@ -37,7 +31,7 @@ class _Main_screenState extends State<Main_screen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Rabatte und Angebote \nfür dich:",
                 style: TextStyle(
                   fontSize: 24,
@@ -46,13 +40,6 @@ class _Main_screenState extends State<Main_screen> {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               CarouselWithDotsPage(imgList: imgList),
-
-              // CatigoryWidget(
-              //   images: "assets/image/Gourmet_Logo.png",
-              //   name: "koffe",
-              //   price: "5",
-              //   title: "sadf",
-              // ),
             ],
           ),
         ),
@@ -62,32 +49,38 @@ class _Main_screenState extends State<Main_screen> {
     ];
 
     return Scaffold(
+
         // appBar: PreferredSize(child: Header(), preferredSize: Size(400, 80)),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.black,
           selectedItemColor: Color(0xffd17842),
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          unselectedItemColor: Colors.white,
           items: [
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/icons/menu-alt-05-svgrepo-com.svg',
                   height: 28,
+                  color: Colors.white,
                 ),
                 label: 'Menu'),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/icons/home-svgrepo-com.svg',
                   height: 28,
+                  color: Colors.white,
                 ),
                 label: 'Home'),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  'assets/icons/profile-svgrepo-com.svg',
+                  'assets/icons/location-pin-svgrepo-com.svg',
                   height: 28,
+                  color: Colors.white,
                 ),
-                label: 'Profile'),
+                label: 'Our os'),
           ],
           onTap: (index) {
             setState(() {
@@ -111,14 +104,47 @@ class _Main_screenState extends State<Main_screen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Header(),
+                      // Header(),
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        child: Image.asset("assets/image/Gourmet_Logo.png"),
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        decoration: const BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(25),
+                            bottomRight: Radius.circular(25),
+                          ),
+                        ),
+                        child: Center(
+                          child: AnimatedContainer(
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            duration: Duration(milliseconds: 500),
+                            child: Image.asset(
+                              "assets/image/Gourmet_Logo.png",
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03),
-                      SearchBar(),
+                      // SizedBox(
+                      //     height: MediaQuery.of(context).size.height * 0.03),
+                      // Container(
+                      //   width: MediaQuery.of(context).size.width * 0.6,
+                      //   child: Image.asset("assets/image/Gourmet_Logo.png"),
+                      // ),
+                      // SizedBox(
+                      //     height: MediaQuery.of(context).size.height * 0.03),
+                      // Container(
+                      //   width: MediaQuery.of(context).size.width * 0.8,
+                      //   height: MediaQuery.of(context).size.height * 0.06,
+                      //   decoration: const BoxDecoration(
+                      //       color: Colors.black,
+                      //       borderRadius: BorderRadius.only(
+                      //         topLeft: Radius.circular(25),
+                      //         topRight: Radius.circular(25),
+                      //       )),
+                      // )
+                      // SearchBar(),
                     ],
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.03),

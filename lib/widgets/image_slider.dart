@@ -9,13 +9,13 @@ class ImageSlider extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          'assets/icons/coffee.png',
-          width: size.width / 1.5,
+          'assets/image/splash.png',
+          width: size.width / 1,
         ),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8.0),
           child: Text(
-            'Coffee so good,\n your taste buds with love',
+            'Kaffee so gut,\n Ihre Geschmacksknospen mit Liebe',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900),
           ),
@@ -26,7 +26,7 @@ class ImageSlider extends StatelessWidget {
             vertical: 8,
           ),
           child: Text(
-            'The best grain, the finest roast, the most powerful flavor',
+            'Das beste Getreide, die feinste Röstung, der kräftigste Geschmack',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),

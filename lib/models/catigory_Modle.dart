@@ -1,4 +1,6 @@
 // ignore: file_names
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'item_model.dart';
 
 class CatigoryModel {
@@ -18,6 +20,24 @@ class CatigoryModel {
       title: json['title'],
       image: json['image'],
       items: json['Items'],
+    );
+  }
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'title': title,
+        'image': image,
+        'items': items.map((item) => item.toJson()).toList(),
+      };
+  factory CatigoryModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> snapshot) {
+    final data = snapshot.data()!;
+    return CatigoryModel(
+      id: data['id'],
+      title: data['title'],
+      image: data['image'],
+      items: (data['items'] as List)
+          .map((itemJson) => ItemModel.fromSnapshot(itemJson))
+          .toList(),
     );
   }
 }

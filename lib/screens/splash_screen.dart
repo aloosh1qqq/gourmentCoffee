@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gourmentcofe/screens/main_screen.dart';
+import 'package:gourmentcofe/screens/signup_screen.dart';
 import 'package:gourmentcofe/them.dart';
 import 'package:gourmentcofe/widgets/image_slider.dart';
 import 'package:gourmentcofe/widgets/main_button.dart';
@@ -19,6 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
+        // ignore: sort_child_properties_last
         child: Column(
           children: [
             const Spacer(
@@ -32,28 +35,45 @@ class _SplashScreenState extends State<SplashScreen> {
                 itemBuilder: (context, index) {
                   return const SingleChildScrollView(child: ImageSlider());
                 },
-                itemCount: 3,
+                itemCount: 1,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: SmoothPageIndicator(
-                controller: controller,
-                count: 3,
-                effect: WormEffect(
-                  activeDotColor: Colors.black,
-                  dotColor: AppTheme.darkColor.withOpacity(0.3),
+            // Padding(
+            //   padding: const EdgeInsets.all(8),
+            //   child: SmoothPageIndicator(
+            //     controller: controller,
+            //     count: 1,
+            //     effect: WormEffect(
+            //       activeDotColor: Colors.black,
+            //       dotColor: AppTheme.darkColor.withOpacity(0.3),
 
-                  dotHeight: 12,
-                  dotWidth: 12,
-                  type: WormType.normal,
-                  // strokeWidth: 5,
-                ),
-              ),
+            //       dotHeight: 12,
+            //       dotWidth: 12,
+            //       type: WormType.normal,
+            //       // strokeWidth: 5,
+            //     ),
+            //   ),
+            // ),
+            const Spacer(),
+            MainButton(
+                title: 'Get Started',
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Main_screen()));
+                }),
+            const Spacer(),
+            // Forgot Password
+            Container(
+              margin: const EdgeInsets.all(5),
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignupPage()));
+                  },
+                  child: const Text("LogIn Or SignUp")),
             ),
-            const Spacer(),
-            const MainButton(),
-            const Spacer(),
           ],
         ),
         decoration: const BoxDecoration(

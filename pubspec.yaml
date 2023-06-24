@@ -48,8 +48,16 @@ dependencies:
   firebase_auth:
   fluttertoast: ^8.0.9
   shared_preferences:
+  flutter_launcher_icons:
+  progress_state_button: ^1.0.2
   # latlong: 
  
+ 
+ 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/image/iconBlack.png"
 
 
 dev_dependencies:

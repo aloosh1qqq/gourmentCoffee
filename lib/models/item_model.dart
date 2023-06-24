@@ -15,7 +15,7 @@ class ItemModel {
     return ItemModel(
       id: json['id'],
       name: json['name'],
-      price: json['price'],
+      price: (json['price']) as double,
       subTitle: json['subTitle'],
     );
   }

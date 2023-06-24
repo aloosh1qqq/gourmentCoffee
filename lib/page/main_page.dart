@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gourmentcofe/screens/main_screen.dart';
-import 'package:gourmentcofe/widgets/carouser_slider.dart';
+
 import 'package:gourmentcofe/widgets/catigory_widget_page.dart';
-import 'package:gourmentcofe/widgets/item_wiget.dart';
-import 'package:gourmentcofe/widgets/search_box.dart';
+
 import 'package:latlong2/latlong.dart';
 
 import '../models/item_model.dart';
@@ -23,12 +22,11 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     final hight = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    print(width.toString());
-    print(hight);
+
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth > 950) {
         return Scaffold(
-          backgroundColor: Color(0xfffbedc1),
+          backgroundColor: const Color(0xfffbedc1),
           body: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -50,7 +48,7 @@ class _MainPageState extends State<MainPage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Padding(
+                                const Padding(
                                   padding: EdgeInsets.symmetric(
                                       vertical: 16, horizontal: 20),
                                   child: Text(
@@ -61,7 +59,7 @@ class _MainPageState extends State<MainPage> {
                                         fontSize: 28),
                                   ),
                                 ),
-                                Divider(),
+                                const Divider(),
                                 StreamBuilder<QuerySnapshot>(
                                     stream: FirebaseFirestore.instance
                                         .collection("product")
@@ -80,7 +78,7 @@ class _MainPageState extends State<MainPage> {
                                               child: GridView.builder(
                                                   itemCount: caty!.length,
                                                   gridDelegate:
-                                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                                      const SliverGridDelegateWithFixedCrossAxisCount(
                                                           crossAxisCount: 2,
                                                           crossAxisSpacing: 15,
                                                           childAspectRatio:
@@ -106,7 +104,7 @@ class _MainPageState extends State<MainPage> {
                                                   }),
                                             ));
                                       } else {
-                                        return Center(
+                                        return const Center(
                                             child: CircularProgressIndicator());
                                       }
                                     }),
@@ -124,7 +122,7 @@ class _MainPageState extends State<MainPage> {
                                   bottom: 0,
                                   width: (width / 7) + 2,
                                   child: Container(
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         // color: Colors.amber,
                                         image: DecorationImage(
                                             image: AssetImage(
@@ -162,19 +160,14 @@ class _MainPageState extends State<MainPage> {
                               ),
                             ],
                           ))
-                      // SizedBox(
-                      //     height: MediaQuery.of(context).size.height * 0.02),
                     ],
                   ),
-                  // SizedBox(
-                  //   height: 25,
-                  // ),
                   Row(
                     children: [
                       Flexible(
                           flex: 5,
                           child: Container(
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(25))),
                               height: hight / 3,
@@ -203,7 +196,7 @@ class _MainPageState extends State<MainPage> {
                                               children: [
                                                 Image.asset(
                                                     "assets/image/Gourmet_Logo.png"),
-                                                Positioned(
+                                                const Positioned(
                                                     top: -30,
                                                     child: Icon(
                                                       Icons.place_outlined,
@@ -220,113 +213,104 @@ class _MainPageState extends State<MainPage> {
                               ))),
                       Flexible(
                           flex: 3,
-                          child: Container(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/icons/location-pin-svgrepo-com.svg",
-                                        height: 26,
-                                        color: Color(0xffd17842),
-                                      ),
-                                      SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.02),
-                                      Text(
-                                        "Elligersweg 5, 22307 Hamburg, Germany",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.03),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/icons/smartphone-svgrepo-com.svg",
-                                        height: 26,
-                                        color: Color(0xffd17842),
-                                      ),
-                                      SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.02),
-                                      Text(
-                                        "+963 999 999 4568",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.03),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/icons/time-quarter-to-svgrepo-com.svg",
-                                        height: 26,
-                                        color: Color(0xffd17842),
-                                      ),
-                                      SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.02),
-                                      Text(
-                                        "17h - 24h",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.03),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/icons/website-ui-web-svgrepo-com.svg",
-                                        height: 26,
-                                        color: Color(0xffd17842),
-                                      ),
-                                      SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.02),
-                                      Text(
-                                        "www.GourmentCoffee.com",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/icons/location-pin-svgrepo-com.svg",
+                                      height: 26,
+                                      color: const Color(0xffd17842),
+                                    ),
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.height *
+                                                0.02),
+                                    const Text(
+                                      "Elligersweg 5, 22307 Hamburg, Germany",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700),
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.03),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/icons/smartphone-svgrepo-com.svg",
+                                      height: 26,
+                                      color: Color(0xffd17842),
+                                    ),
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.height *
+                                                0.02),
+                                    const Text(
+                                      "+963 999 999 4568",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700),
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.03),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/icons/time-quarter-to-svgrepo-com.svg",
+                                      height: 26,
+                                      color: Color(0xffd17842),
+                                    ),
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.height *
+                                                0.02),
+                                    const Text(
+                                      "17h - 24h",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700),
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.03),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/icons/website-ui-web-svgrepo-com.svg",
+                                      height: 26,
+                                      color: Color(0xffd17842),
+                                    ),
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.height *
+                                                0.02),
+                                    const Text(
+                                      "www.cafe-gourment.de",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700),
+                                    )
+                                  ],
+                                ),
+                              ],
                             ),
                           ))
                     ],
@@ -342,25 +326,3 @@ class _MainPageState extends State<MainPage> {
     });
   }
 }
-
-//  GridView.count(
-//                                         mainAxisSpacing: 1,
-//                                         crossAxisSpacing: 25,
-//                                         crossAxisCount:
-//                                             2, // عدد العناصر في كل صف
-//                                         // نسبة العرض إلى الارتفاع لكل عنصر
-//                                         children: List.generate(caty!.length,
-//                                             (index) {
-//                                           List<ItemModel> items = (caty[index]
-//                                                   ['items'] as List<dynamic>)
-//                                               .map((itemJson) =>
-//                                                   ItemModel.fromJson(itemJson))
-//                                               .toList();
-//                                           return CatigoryWidgetPage(
-//                                             docsId: caty[index].id,
-//                                             images: caty[index]["image"],
-//                                             items: items,
-//                                             title: caty[index]["title"],
-//                                           );
-//                                         }),
-//                                       ));

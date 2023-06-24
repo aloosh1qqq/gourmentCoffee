@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:gourmentcofe/main.dart';
 import 'package:gourmentcofe/screens/main_screen.dart';
 import 'package:gourmentcofe/screens/signup_screen.dart';
 import 'package:gourmentcofe/them.dart';
 import 'package:gourmentcofe/widgets/image_slider.dart';
 import 'package:gourmentcofe/widgets/main_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../test.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -28,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
               flex: 2,
             ),
             SizedBox(
-              height: size.height / 2,
+              height: size.height / 1.5,
               child: PageView.builder(
                 controller: controller,
                 scrollDirection: Axis.horizontal,
@@ -55,25 +58,27 @@ class _SplashScreenState extends State<SplashScreen> {
             //   ),
             // ),
             const Spacer(),
+            // MyCustomWidget(),
             MainButton(
                 title: 'Get Started',
                 onTap: () {
+                  preferences.setString("userName", "Gust");
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Main_screen()));
                 }),
             const Spacer(),
             // Forgot Password
-            Container(
-              margin: const EdgeInsets.all(5),
-              child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignupPage()));
-                  },
-                  child: const Text("LogIn Or SignUp")),
-            ),
+            // Container(
+            //   margin: const EdgeInsets.all(5),
+            //   child: TextButton(
+            //       onPressed: () {
+            //         Navigator.push(
+            //             context,
+            //             MaterialPageRoute(
+            //                 builder: (context) => const SignupPage()));
+            //       },
+            //       child: const Text("LogIn Or SignUp")),
+            // ),
           ],
         ),
         decoration: const BoxDecoration(

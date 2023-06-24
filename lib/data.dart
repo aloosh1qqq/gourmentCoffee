@@ -7,6 +7,7 @@ List<CatigoryModel> catigory = [
     id: 1,
     title: "Tee sorten",
     image: "assets/image/1.jpg",
+    icon: 'assets/icons/green-tea.svg',
     items: [
       ItemModel(id: 1, name: "Englische Mischung", price: 2.90),
       ItemModel(id: 2, name: "Grüntee", price: 2.90),
@@ -22,6 +23,7 @@ List<CatigoryModel> catigory = [
     id: 2,
     title: "Kaffee und co",
     image: "assets/image/2.jpg",
+    icon: 'assets/icons/coffee-beans.svg',
     items: [
       ItemModel(id: 1, name: "Becher", price: 2.40),
       ItemModel(id: 2, name: "Tasse", price: 2.10),
@@ -40,6 +42,7 @@ List<CatigoryModel> catigory = [
     id: 3,
     title: "Kalte Getränke",
     image: "assets/image/6.jpg",
+    icon: 'assets/icons/lemonade.svg',
     items: [
       ItemModel(id: 1, name: "Wasser 0,25L", price: 2.60),
       ItemModel(id: 2, name: "Wasser 0,75L", price: 4.90),
@@ -61,6 +64,7 @@ List<CatigoryModel> catigory = [
     id: 4,
     title: "Limonade und EisTee",
     image: "assets/image/5.jpg",
+    icon: 'assets/icons/lemonade.svg',
     items: [
       ItemModel(id: 1, name: "Hausgemachte Limonade 0,3L", price: 3.80),
       ItemModel(id: 2, name: "Mange-Passionsfrucht-Eistee", price: 3.90),
@@ -73,18 +77,19 @@ List<CatigoryModel> catigory = [
     id: 5,
     title: "Salat",
     image: "assets/image/6.jpg",
+    icon: 'assets/icons/salad.svg',
     items: [
       ItemModel(id: 1, name: "Kleiner Gemischte Salat", price: 4.80),
       ItemModel(
           id: 2,
           name: "Thon-Ficsh Salat",
-          price: 9.90,
+          price: 10.90,
           subTitle:
               "Gemischte Salat ,zwiebeln ,Tomaten ,Oliven ,mit Ton fisch und Dressing nach Auswahl"),
       ItemModel(
           id: 3,
           name: "Cesar Salat",
-          price: 11.90,
+          price: 9.90,
           subTitle: "Römersalat mit Hänschen Brust fillet  zisam und krouten"),
       ItemModel(
           id: 4,
@@ -108,12 +113,18 @@ List<CatigoryModel> catigory = [
           name: "Falafel Salat",
           price: 10.90,
           subTitle: "Gemischte Salat ,zwiebeln ,Tomaten ,Oliven und Falafel"),
+      ItemModel(
+        id: 8,
+        name: "Hummus",
+        price: 7.90,
+      ),
     ],
   ),
   CatigoryModel(
     id: 6,
     title: "Frühstück",
     image: "assets/image/7.jpg",
+    icon: 'assets/icons/breakfast.svg',
     items: [
       ItemModel(
           id: 1,
@@ -127,8 +138,8 @@ List<CatigoryModel> catigory = [
           subTitle: "Kaffe. Brötchen , Butter ,putensalame "),
       ItemModel(
           id: 3,
-          name: "Gougmet Frühstück",
-          price: 9.90,
+          name: "Gourmet Frühstück",
+          price: 7.90,
           subTitle:
               "Croissant ,Honig, Butter , Konfitüre , Brötchen , Frischkäse, Putensalami, gekochte EiGurcke und Tomate"),
       ItemModel(
@@ -148,6 +159,7 @@ List<CatigoryModel> catigory = [
     id: 7,
     title: "Belegte Brotschen",
     image: "assets/image/8.jpg",
+    icon: 'assets/icons/sandwich.svg',
     items: [
       ItemModel(id: 1, name: "Belegte Brotschen mit mozzarelle", price: 3.20),
       ItemModel(
@@ -155,9 +167,23 @@ List<CatigoryModel> catigory = [
       ItemModel(
           id: 3, name: "Belegte Brotschen mit puten-streifen", price: 3.80),
       ItemModel(
-          id: 4, name: "Belegte Brotschen mit salami sheiben", price: 3.90),
+          id: 4, name: "Belegte Brotschen mit salami sheiben", price: 3.80),
       ItemModel(id: 5, name: "Belegte Brotschen mit eier", price: 3.10),
       ItemModel(id: 6, name: "Belegte Brotschen mit käse", price: 3.90),
     ],
-  )
+  ),
+  CatigoryModel(
+    id: 8,
+    title: "Nachwal",
+    image: "assets/image/9.jpg",
+    icon: 'assets/icons/jar-of-jam.svg',
+    items: [
+      ItemModel(id: 1, name: "Butter", price: 70.0),
+      ItemModel(id: 2, name: "Honig", price: 70.0),
+      ItemModel(id: 3, name: "Konfitüre", price: 70.0),
+      ItemModel(id: 4, name: "Gekochte Eier", price: 1.30),
+      ItemModel(id: 5, name: "Spiegelei", price: 1.90),
+      ItemModel(id: 6, name: "käse", price: 0.90),
+    ],
+  ),
 ];

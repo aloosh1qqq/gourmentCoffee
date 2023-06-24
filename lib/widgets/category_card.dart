@@ -3,46 +3,48 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryItem extends StatelessWidget {
   bool isSelected;
-  final String? iconData;
+  final String iconData;
   final String title;
   final VoidCallback ontap;
+  final VoidCallback onlongTap;
   CategoryItem(
       {Key? key,
       required this.isSelected,
       required this.iconData,
       required this.title,
-      required this.ontap})
+      required this.ontap,
+      required this.onlongTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: ontap,
+      onLongPress: onlongTap,
       child: Container(
-          // margin: const EdgeInsets.all(5),
-
           decoration: BoxDecoration(
-            //   boxShadow: [
-            //     BoxShadow(
-            //       color: !isSelected
-            //           ? Colors.grey.withOpacity(0.3)
-            //           : Colors.transparent,
-            //       spreadRadius: 2,
-            //       blurRadius: 5,
-            //       offset: const Offset(0, 3),
-            //     ),
-            //   ],
             color: Colors.white,
             borderRadius: BorderRadius.circular(30),
           ),
-          child: Center(
-            child: Text(
-              title,
-              style: TextStyle(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                iconData,
+                height: 28,
                 color: Color(0xffd17842),
-                fontWeight: FontWeight.w600,
               ),
-            ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                title,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           )),
     );
   }

@@ -1,15 +1,14 @@
-import 'dart:convert';
-import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gourmentcofe/models/user_modle.dart';
 import 'package:gourmentcofe/screens/main_screen.dart';
-import 'package:gourmentcofe/widgets/main_button.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:progress_state_button/progress_button.dart';
 
 import '../main.dart';
+import '../test.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -21,7 +20,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   var isPasswordHidden = true;
-
+  ButtonState stateTextWithIcon = ButtonState.idle;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -51,50 +50,6 @@ class _LoginPageState extends State<LoginPage> {
                     fit: BoxFit.fill,
                   ),
                 ))),
-            // Positioned(
-            //   bottom: -80,
-            //   left: -120,
-            //   child: Container(
-            //     height: 200,
-            //     width: 200,
-            //     decoration: const BoxDecoration(
-            //         color: Colors.red,
-            //         shape: BoxShape.circle,
-            //         boxShadow: [
-            //           BoxShadow(
-            //               color: Color.fromARGB(255, 14, 123, 213),
-            //               blurRadius: 15.0,
-            //               spreadRadius: 15.0,
-            //               blurStyle: BlurStyle.outer)
-            //         ]),
-            //   ),
-            // ),
-            // Positioned(
-            //   top: -20,
-            //   right: -50,
-            //   child: Container(
-            //     height: 200,
-            //     width: 200,
-            //     decoration: const BoxDecoration(
-            //         color: Colors.orange,
-            //         shape: BoxShape.circle,
-            //         boxShadow: [
-            //           BoxShadow(
-            //               color: Colors.orange,
-            //               blurRadius: 15.0,
-            //               spreadRadius: 15.0,
-            //               blurStyle: BlurStyle.outer)
-            //         ]),
-            //   ),
-            // ),
-            // BackdropFilter(
-            //   filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //       color: Colors.white.withOpacity(0.2),
-            //     ),
-            //   ),
-            // ),
             SafeArea(
               child: SingleChildScrollView(
                 child: Form(
@@ -180,28 +135,16 @@ class _LoginPageState extends State<LoginPage> {
                           width: 200,
                           height: 40,
                           margin: const EdgeInsets.only(top: 50),
-                          child: MainButton(
-                            onTap: () {
+                          child: MyCustomWidget(
+                            icon: Icons.login,
+                            ontap: () {
                               signIn(emailController.text.toString(),
                                   passwordController.text.toString());
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Main_screen()));
                             },
-                            title: "Login Now",
+                            text: "Login Now",
+                            stateTextWithIcon: stateTextWithIcon,
                           ),
                         ),
-
-                        // Forgot Password
-                        // Container(
-                        //   margin: const EdgeInsets.all(5),
-                        //   child: TextButton(
-                        //       onPressed: () {
-                        //         Navigator.pushNamed(context, '/forgot');
-                        //       },
-                        //       child: const Text("Forgot Password?")),
-                        // ),
 
                         Container(
                           margin: const EdgeInsets.only(top: 250),
@@ -232,23 +175,51 @@ class _LoginPageState extends State<LoginPage> {
 
   void signIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        stateTextWithIcon = ButtonState.loading;
+      });
       await _auth
           .signInWithEmailAndPassword(
               email: email.toString(), password: password.toString())
           .then((uid) async {
-        Fluttertoast.showToast(msg: "Login Successful!");
+        Future.delayed(Duration(seconds: 1), () {
+          Fluttertoast.showToast(msg: "Login Successful!");
+          setState(() {
+            stateTextWithIcon = ButtonState.success;
+          });
+        });
+
+        Future.delayed(
+          Duration(seconds: 2),
+          () {
+            stateTextWithIcon = ButtonState.success;
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Main_screen()));
+          },
+        );
         final DocumentSnapshot snapshot = await FirebaseFirestore.instance
             .collection('users')
             .doc(uid.user?.uid)
             .get();
-
         UserModel u = UserModel.fromMap(snapshot.data());
         preferences.setString("uid", uid.user!.uid);
         preferences.setString('userName', u.email.toString());
         preferences.setString('userType', u.type.toString());
       }).catchError((e) {
-        print(e!.message);
         Fluttertoast.showToast(msg: e!.message);
+        setState(() {
+          stateTextWithIcon = ButtonState.fail;
+          Future.delayed(
+            Duration(seconds: 2),
+            () {
+              setState(
+                () {
+                  stateTextWithIcon = ButtonState.idle;
+                },
+              );
+            },
+          );
+        });
       });
     }
   }

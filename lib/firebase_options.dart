@@ -44,13 +44,13 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC6JU3UZ95IEpf-HrSNZvbfLd8V8qaOykI',
-    appId: '1:763314098857:web:0d59eaabced71e3c91cfb8',
-    messagingSenderId: '763314098857',
-    projectId: 'gourmentcoffee-6a612',
-    authDomain: 'gourmentcoffee-6a612.firebaseapp.com',
-    storageBucket: 'gourmentcoffee-6a612.appspot.com',
-  );
+      apiKey: 'AIzaSyC6JU3UZ95IEpf-HrSNZvbfLd8V8qaOykI',
+      appId: '1:763314098857:web:0d59eaabced71e3c91cfb8',
+      messagingSenderId: '763314098857',
+      projectId: 'gourmentcoffee-6a612',
+      authDomain: 'gourmentcoffee-6a612.firebaseapp.com',
+      storageBucket: 'gourmentcoffee-6a612.appspot.com',
+      measurementId: "G-RFNCPY0GF5");
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAfytLxfrr78jdSKYd2fR7tdjFqx7HqNu8',
@@ -66,7 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '763314098857',
     projectId: 'gourmentcoffee-6a612',
     storageBucket: 'gourmentcoffee-6a612.appspot.com',
-    iosClientId: '763314098857-lcedl8t3vpb75jfkiij2v3ac6r2mb6aq.apps.googleusercontent.com',
+    iosClientId:
+        '763314098857-lcedl8t3vpb75jfkiij2v3ac6r2mb6aq.apps.googleusercontent.com',
     iosBundleId: 'com.example.gourmentcofe',
   );
 
@@ -76,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '763314098857',
     projectId: 'gourmentcoffee-6a612',
     storageBucket: 'gourmentcoffee-6a612.appspot.com',
-    iosClientId: '763314098857-lcedl8t3vpb75jfkiij2v3ac6r2mb6aq.apps.googleusercontent.com',
+    iosClientId:
+        '763314098857-lcedl8t3vpb75jfkiij2v3ac6r2mb6aq.apps.googleusercontent.com',
     iosBundleId: 'com.example.gourmentcofe',
   );
 }

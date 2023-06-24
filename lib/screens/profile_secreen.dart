@@ -67,7 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   SvgPicture.asset(
                     "assets/icons/location-pin-svgrepo-com.svg",
-                    height: 26,
+                    height: 24,
                     color: Color(0xffd17842),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.height * 0.02),
@@ -84,12 +84,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   SvgPicture.asset(
                     "assets/icons/smartphone-svgrepo-com.svg",
-                    height: 26,
+                    height: 24,
                     color: Color(0xffd17842),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.height * 0.02),
                   Text(
-                    "+963 999 999 4568",
+                    "+49 160 99442353",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   )
                 ],
@@ -101,12 +101,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   SvgPicture.asset(
                     "assets/icons/time-quarter-to-svgrepo-com.svg",
-                    height: 26,
+                    height: 24,
                     color: Color(0xffd17842),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.height * 0.02),
                   Text(
-                    "17h - 24h",
+                    "From 7:00 AM to 8:00 PM. all days",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   )
                 ],
@@ -118,12 +118,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   SvgPicture.asset(
                     "assets/icons/website-ui-web-svgrepo-com.svg",
-                    height: 26,
+                    height: 24,
                     color: Color(0xffd17842),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.height * 0.02),
                   Text(
-                    "www.GourmentCoffee.com",
+                    "www.café-gourmet.de",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                  )
+                ],
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SvgPicture.asset(
+                    "assets/icons/mail-left-arrow-svgrepo-com.svg",
+                    height: 24,
+                    color: Color(0xffd17842),
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.height * 0.02),
+                  Text(
+                    "info@café-gourmet.de",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   )
                 ],

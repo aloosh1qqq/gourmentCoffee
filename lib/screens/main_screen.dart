@@ -47,7 +47,8 @@ class _Main_screenState extends State<Main_screen> {
       ProfileScreen(),
       Container(),
     ];
-
+    print(MediaQuery.of(context).size.height.toString());
+    print(MediaQuery.of(context).size.width.toString());
     return Scaffold(
 
         // appBar: PreferredSize(child: Header(), preferredSize: Size(400, 80)),
@@ -80,7 +81,7 @@ class _Main_screenState extends State<Main_screen> {
                   height: 28,
                   color: Colors.white,
                 ),
-                label: 'Our os'),
+                label: 'About us'),
           ],
           onTap: (index) {
             setState(() {
